@@ -21,7 +21,6 @@ pest()->extend(Tests\TestCase::class)
         Http::preventStrayRequests();
     });
 
-
 /*
 |--------------------------------------------------------------------------
 | Expectations

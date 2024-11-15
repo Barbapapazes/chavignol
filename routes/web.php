@@ -5,9 +5,11 @@ declare(strict_types=1);
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// @codeCoverageIgnoreStart
 Route::get('/', function () {
     return view('welcome');
 });
+// @codeCoverageIgnoreEnd
 
 // @codeCoverageIgnoreStart
 Route::get('/dashboard', function () {
