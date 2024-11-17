@@ -125,4 +125,16 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Sleep Time
+    |--------------------------------------------------------------------------
+    |
+    | This value is the time in seconds that the application will sleep
+    | before responding to a request. This can be useful to simulate
+    | slow responses in order to test the application's performance.
+    |
+    */
+    'sleep_time' => env('APP_SLEEP_TIME', 0),
+
 ];

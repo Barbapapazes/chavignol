@@ -1,11 +1,35 @@
-import laravel from 'laravel-vite-plugin'
+import Vue from '@vitejs/plugin-vue'
+import Laravel from 'laravel-vite-plugin'
+import RadixVueResolver from 'radix-vue/resolver'
+import AutoImport from 'unplugin-auto-import/vite'
+import Component from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
-    laravel({
-      input: ['resources/css/app.css', 'resources/js/app.js'],
+    Laravel({
+      input: ['resources/css/app.css', 'resources/js/app.js', 'resources/js/blog.ts'],
       refresh: true,
+    }),
+    Vue(),
+    Component({
+      dirs: [
+        'resources/js/blog/components',
+      ],
+      resolvers: [
+        RadixVueResolver(),
+      ],
+      dts: true,
+    }),
+    AutoImport({
+      imports: [
+        'vue',
+      ],
+      dirs: [
+        'resources/js/blog/api/**',
+        'resources/js/blog/composables/**',
+      ],
+      dts: true,
     }),
   ],
 })

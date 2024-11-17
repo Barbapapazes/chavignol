@@ -2,20 +2,16 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// @codeCoverageIgnoreStart
-Route::get('/', function () {
-    return view('welcome');
-});
-// @codeCoverageIgnoreEnd
+Route::get('/', fn () => response()->redirectToRoute('posts.index'))->name('home');
 
-// @codeCoverageIgnoreStart
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-// @codeCoverageIgnoreEnd
+Route::get('posts', [PostController::class, 'index'])
+    ->name('posts.index');
+Route::get('posts/{post:slug}', [PostController::class, 'show'])
+    ->name('posts.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes dialog-appear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96)
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1)
+  }
+}
+
+@keyframes dialog-disappear {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1)
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96)
+  }
+}
+
+@keyframes dialog-overlay-appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-overlay-disappear {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes toast-open {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toast-closed {
+    from {
+        opacity: 1;
+        transform: var(--transform);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(calc((var(--offset) - var(--height)) * var(--translate-factor)));
+    }
+}
