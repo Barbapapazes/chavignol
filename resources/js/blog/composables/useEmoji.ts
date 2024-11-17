@@ -10,7 +10,7 @@ export function useEmoji() {
   }
 
   return {
-    emoji: readonly(emoji),
+    emoji,
 
     fetchEmoji,
   }
