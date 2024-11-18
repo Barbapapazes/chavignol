@@ -13,7 +13,7 @@ const { state: emojiState } = useEmoji()
         <div class="mt-4 flex justify-center">
           <span v-if="emojiState.status === 'pending'">Loading...</span>
           <template v-else-if="emojiState.data">
-            <Emoji v-for="emoji in emojiState.data.data" :key="emoji.id" :emoji="emoji" />
+            <Emoji v-for="emoji in emojiState.data" :key="emoji.id" :emoji="emoji" />
           </template>
         </div>
       </section>
