@@ -24,10 +24,15 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
+        {
+          from: '@pinia/colada',
+          imports: ['useQuery', 'useMutation', 'useQueryCache'],
+        },
       ],
       dirs: [
         'resources/js/blog/api/**',
         'resources/js/blog/composables/**',
+        'resources/js/blog/queries/**',
       ],
       dts: true,
     }),

@@ -1,14 +1,5 @@
 <script lang="ts" setup>
-const { emoji, fetchEmoji } = useEmoji()
-const { fetchReactions } = useReactions()
-
-onMounted(() => {
-  fetchEmoji(window.postId)
-
-  if (window.isLoggedIn) {
-    fetchReactions(window.postId)
-  }
-})
+const { state: emojiState } = useEmoji()
 </script>
 
 <template>
@@ -20,7 +11,10 @@ onMounted(() => {
         </h2>
 
         <div class="mt-4 flex justify-center">
-          <Emoji v-for="e in emoji" :key="e.id" :emoji="e" />
+          <span v-if="emojiState.status === 'pending'">Loading...</span>
+          <template v-else-if="emojiState.data">
+            <Emoji v-for="emoji in emojiState.data.data" :key="emoji.id" :emoji="emoji" />
+          </template>
         </div>
       </section>
 
