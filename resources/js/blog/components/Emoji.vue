@@ -29,7 +29,7 @@ const {
   mutation: ({ postId, emojiId }: { postId: number, emojiId: number }) => storeReaction(postId, emojiId),
   onMutate: () => {
     // Update the emoji count
-    const oldEmoji = queryCache.getQueryData<ReactionCount[]>(['reactions', window.postId]) || []
+    const oldEmoji = queryCache.getQueryData<ReactionCount[]>(['emoji', window.postId]) || []
 
     const emojiIndex = oldEmoji.findIndex(emoji => emoji.id === props.emoji.id)
 
